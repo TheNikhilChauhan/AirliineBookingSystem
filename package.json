@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Micro service for handling Flight CRUD",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "npx nodemon src/index"
   },

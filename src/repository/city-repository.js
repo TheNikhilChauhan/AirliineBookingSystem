@@ -1,4 +1,4 @@
-import City from "../models/city.js";
+const { City } = require("../models/index.js");
 
 class CityRepository {
   async createCity({ name }) {
@@ -23,4 +23,4 @@ class CityRepository {
   }
 }
 
-export default CityRepository;
+module.exports = CityRepository;

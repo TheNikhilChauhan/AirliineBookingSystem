@@ -1,7 +1,11 @@
-import express from "express";
-import bodyParser from "body-parser";
+const express = require("express");
+const bodyParser = require("body-parser");
 
-import { PORT } from "./config/serverConfig.js";
+const { PORT } = require("./config/serverConfig.js");
+
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection at:", promise, "reason:", reason);
+});
 
 const setupAndStartServer = async () => {
   //create express object
