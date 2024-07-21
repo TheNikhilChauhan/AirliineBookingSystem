@@ -33,3 +33,8 @@ Model based architecture
 ### Airport -> id, name, address, city_id, created_at, updated_at
 
     Relationship -> City has many airports and Airport belongs to a city (one to many relation)
+
+```
+npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId
+:integer
+```
