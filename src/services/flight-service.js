@@ -24,8 +24,24 @@ class FlightService {
     }
   }
 
-  async getFlightData() {
-    //todo
+  async getFlightsData(data) {
+    try {
+      const flights = await this.flightRepo.getAllFlights(data);
+      return flights;
+    } catch (error) {
+      console.log("Something went wrong at service layer");
+      throw { error };
+    }
+  }
+
+  async getFlight(flightId) {
+    try {
+      const flight = await this.flightRepo.getFlight(flightId);
+      return flight;
+    } catch (error) {
+      console.log("Something went wrong at service layer");
+      throw { error };
+    }
   }
 }
 
