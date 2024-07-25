@@ -1,11 +1,12 @@
 const { FlightService } = require("../services/index");
+const { ClinetErrorCodes, SuccessCodes } = require("../utils/error-codes");
 
 const flightService = new FlightService();
 
 const create = async (req, res) => {
   try {
     const flight = await flightService.createFlight(req.body);
-    return res.status(201).json({
+    return res.status(SuccessCodes.CREATED).json({
       data: flight,
       success: true,
       err: {},
@@ -35,7 +36,7 @@ const getAll = async (req, res) => {
     };
 
     const response = await flightService.getFlightsData(flightRequestData);
-    return res.status(200).json({
+    return res.status(SuccessCodes.OK).json({
       data: response,
       success: true,
       err: {},
@@ -54,7 +55,7 @@ const getAll = async (req, res) => {
 const get = async (req, res) => {
   try {
     const response = await flightService.getFlight(req.params.id);
-    return res.status(200).json({
+    return res.status(SuccessCodes.OK).json({
       data: response,
       success: true,
       err: {},
