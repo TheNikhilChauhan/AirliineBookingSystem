@@ -24,7 +24,17 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const response = await flightService.getFlightsData(req.query);
+    let flightRequestData = {
+      flightNumber: req.body.flightNumber,
+      airplaneId: req.body.airplaneId,
+      departureAirportId: req.body.departureAirportId,
+      arrivalAirportId: req.body.arrivalAirportId,
+      arrivalTime: req.body.arrivalTime,
+      departureTime: req.body.departureTime,
+      price: req.body.price,
+    };
+
+    const response = await flightService.getFlightsData(flightRequestData);
     return res.status(200).json({
       data: response,
       success: true,
