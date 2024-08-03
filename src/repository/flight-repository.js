@@ -57,7 +57,7 @@ class FlightRepository {
 
   async update(flightId, data) {
     try {
-      const response = await Flight.updata(data, {
+      const response = await Flight.update(data, {
         where: {
           id: flightId,
         },
